@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Theme Preferences</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="fade-in">Interactive Theme Preferences</h1>
+            <p class="fade-in">Customize your experience and save your preferences</p>
+        </header>
+
+        <div class="theme-controller">
+            <button class="theme-btn" id="defaultTheme">Default Theme</button>
+            <button class="theme-btn" id="darkTheme">Dark Theme</button>
+            <button class="theme-btn" id="greenTheme">Green Theme</button>
+            <button class="theme-btn" id="purpleTheme">Purple Theme</button>
+        </div>
+
+        <div class="card-container">
+            <div class="card fade-in" style="animation-delay: 0.1s;">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="placeholder">
+                </div>
+                <h3>Feature One</h3>
+                <p>Click this card to see a special animation effect!</p>
+            </div>
+            <div class="card fade-in" style="animation-delay: 0.2s;">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="placeholder">
+                </div>
+                <h3>Feature Two</h3>
+                <p>Your preferences are automatically saved to localStorage.</p>
+            </div>
+            <div class="card fade-in" style="animation-delay: 0.3s;">
+                <div class="card-image">
+                    <img src="/api/placeholder/400/320" alt="placeholder">
+                </div>
+                <h3>Feature Three</h3>
+                <p>Smooth transitions between different theme states.</p>
+            </div>
+        </div>
+
+        <div class="transition-speed-controller fade-in" style="animation-delay: 0.4s;">
+            <h3>Transition Speed</h3>
+            <input type="range" min="1" max="10" value="3" class="speed-slider" id="transitionSpeed">
+            <p>Adjust how fast transitions and animations play</p>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        Preferences saved successfully!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

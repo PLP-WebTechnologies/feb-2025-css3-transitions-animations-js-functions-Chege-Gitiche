@@ -1,0 +1,213 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --card-background: #fff;
+    --transition-speed: 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.theme-controller {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.theme-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform var(--transition-speed) ease, 
+               background-color var(--transition-speed) ease,
+               box-shadow var(--transition-speed) ease;
+}
+
+.theme-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.theme-btn:active {
+    transform: translateY(1px);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-speed) ease,
+               box-shadow var(--transition-speed) ease,
+               background-color var(--transition-speed) ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Animation Classes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* Theme Classes */
+body.dark-theme {
+    --primary-color: #6ab0de;
+    --secondary-color: #4cd137;
+    --background-color: #222;
+    --text-color: #f5f5f5;
+    --card-background: #333;
+}
+
+body.green-theme {
+    --primary-color: #27ae60;
+    --secondary-color: #f39c12;
+    --background-color: #e8f8f5;
+    --text-color: #2c3e50;
+    --card-background: #fff;
+}
+
+body.purple-theme {
+    --primary-color: #9b59b6;
+    --secondary-color: #e74c3c;
+    --background-color: #f5eef8;
+    --text-color: #34495e;
+    --card-background: #fff;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.transition-speed-controller {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: var(--card-background);
+    border-radius: 10px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.speed-slider {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    .theme-controller {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
